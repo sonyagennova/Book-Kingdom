@@ -1,0 +1,61 @@
+.animal_section1 {
+    //background-image: url("https://images.unsplash.com/photo-1550100136-e092101726f4?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    color: #000000;
+    text-align: center;
+  }
+
+  .animal_section1 h1{
+    font-family: 'Paytone One', sans-serif;
+  }
+  
+  .animal_section1 .p{
+    font-family: 'Paytone One', sans-serif;
+  }
+  
+  .animal_section1 .animal_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .animal_section1 .animal_container .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    margin: 45px 2.5%;
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%;
+  }
+  
+  .animal_section1 .animal_container .box .img-box {
+    border-radius: 15px;
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .animal_section1 .animal_container .box .img-box img {
+    width: 100%;
+  }
+  
+  .animal_section1 .animal_container .box .detail-box {
+    margin-top: 15px;
+  }
+  
+  .animal_section1 .animal_container .box .detail-box h5 {
+    font-weight: bold;
+  }

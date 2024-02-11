@@ -1,0 +1,87 @@
+.layout_padding {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .food_section .food_container .box .detail-box a:hover {
+    background-color: transparent;
+    color: #0a2050;
+  }
+
+  .food_section {
+    // background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, #0a2050), color-stop(60%, transparent));
+    // background: linear-gradient(to bottom, #0a2050 60%, transparent 60%);
+    background-image: url("https://images.unsplash.com/photo-1516801197880-8abcfc4e3516?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  }
+  
+  .food_section .heading_container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .food_section .food_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  
+  .food_section .food_container .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    margin: 45px 20px 0 20px;
+  }
+  
+  .food_section .food_container .box .img-box img {
+    width: 250px
+  }
+  
+  .food_section .food_container .box .detail-box {
+    margin-top: 15px;
+  }
+  
+  .food_section .food_container .box .detail-box h6 {
+    /* color: #e7d619; */
+    color: #ea6992;
+    text-transform: uppercase;
+  }
+  
+  .food_section .food_container .box .detail-box h3 {
+    font-weight: bold;
+    /* color: #e7d619; */
+    color: #ea6992;
+  }
+  
+  .food_section .food_container .box .detail-box h3 span {
+    color: #0a2050;
+  }
+  
+  .food_section .food_container .box .detail-box a {
+    display: inline-block;
+    padding: 8px 45px;
+    background-color: #0a2050;
+    /* color: #e7d619; */
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid #0a2050;
+    border-radius: 0;
+    margin-top: 15px;
+  }

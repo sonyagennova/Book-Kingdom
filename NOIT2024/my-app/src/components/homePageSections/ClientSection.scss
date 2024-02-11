@@ -1,0 +1,73 @@
+.layout_padding {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .client_section #carouselExampleControls {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .client_section .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 75px;
+  }
+  
+  .client_section .box .img-box {
+    margin-right: 25px;
+    min-width: 250px;
+  }
+  
+  .client_section .box .img-box img {
+    width: 100%;
+  }
+  
+  .client_section .box .detail-box h4 {
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+  
+  .client_section .box .detail-box img {
+    width: 25px;
+  }
+  
+  .client_section .carousel_btn-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .client_section .carousel_btn-box .carousel-control-prev,
+  .client_section .carousel_btn-box .carousel-control-next {
+    position: unset;
+    width: 45px;
+    height: 45px;
+    background-color: #e55593;
+    opacity: 1;
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 3px;
+  }
+  
+  .client_section .carousel_btn-box .carousel-control-prev:hover,
+  .client_section .carousel_btn-box .carousel-control-next:hover {
+    background-color: #000000;
+  }
+  
+  .client_section .carousel_btn-box .carousel-control-prev {
+    background-image: url(../images/prev.png);
+  }
+  
+  .client_section .carousel_btn-box .carousel-control-next {
+    background-image: url(../images/next.png);
+  }

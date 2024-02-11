@@ -1,0 +1,62 @@
+.custom_nav-container .nav_search-btn {
+    background-image: url(../../../static/images/search-icon.png);
+    background-size: 17px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    border: none;
+  }
+  
+  .navbar-brand {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .navbar-brand img {
+    width: 65px;
+  }
+  
+  .navbar-brand h1{
+    color: #e55593;
+    text-shadow: 5px 5px white;
+    font-style: bold;
+    font-size: 3rem;
+    font-family: 'Paytone One', sans-serif;
+  }
+  
+  .navbar-brand1 h1{
+    color: #ffffff;
+    font-style: bold;
+    font-size: 3rem;
+    font-family: 'Paytone One', sans-serif;
+  }
+  
+  .custom_nav-container {
+    z-index: 99999;
+    padding: 0;
+    height: 80px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  .custom_nav-container .navbar-toggler {
+    outline: none;
+  }
+  
+  .custom_nav-container .navbar-toggler .navbar-toggler-icon {
+    background-image: url(../../../static/images/menu.png);
+    background-size: 50px;
+    width: 30px;
+    height: 30px;
+  }

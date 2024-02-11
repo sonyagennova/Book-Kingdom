@@ -1,0 +1,9 @@
+.like-btn{
+  width: 20px
+}
+
+.like-btn:hover{
+  cursor: pointer;
+  content: url(../../../static/images/heart2.png);
+  width: 20px
+}

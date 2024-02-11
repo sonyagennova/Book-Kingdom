@@ -1,0 +1,26 @@
+.layout_padding {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .heading_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  
+  .heading_container img {
+    max-width: 50px;
+    padding-bottom: 10px;
+  }
+  
+  .heading_container h2 {
+    font-weight: bold;
+  }
