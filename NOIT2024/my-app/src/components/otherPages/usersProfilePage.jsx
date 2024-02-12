@@ -28,7 +28,7 @@ export function UserProfilePage(){
   const navigate = useNavigate()
 
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 24;
+  const itemsPerPage = 8;
 
   useEffect(() => {
     async function getBooks() {
@@ -51,6 +51,16 @@ export function UserProfilePage(){
     getBooks();
   }, [location.pathname]);
 
+  
+  const userId = location.pathname.split("/")[1];
+  
+  useEffect(() => {
+    bookService.getAll()
+    .then(result => setBooks(result))
+    .then(() => setLike())
+    .catch(error => console.error('Error fetching books:', error));
+  }, []);
+  
   const startOffset = itemOffset;
     const endOffset = Math.min(startOffset + itemsPerPage, bookData.length);
     const currentItems = bookData.slice(startOffset, endOffset);
@@ -59,16 +69,7 @@ export function UserProfilePage(){
       const newOffset = (event.selected * itemsPerPage) % bookData.length;
       setItemOffset(newOffset);
     };
-
-  const userId = location.pathname.split("/")[1];
-
-  useEffect(() => {
-    bookService.getAll()
-      .then(result => setBooks(result))
-      .then(() => setLike())
-      .catch(error => console.error('Error fetching books:', error));
-  }, []);
-
+    
   useEffect(() => {
     if (userId) {
       userService.getOne(userId)
@@ -144,7 +145,7 @@ export function UserProfilePage(){
       }
       <div className="profile-tabs">
           {bookData.length > 0 ? (
-    bookData.map((books) =>
+    currentItems.map((books) =>
         <div className=" flip-card">
   <div className="flip-card-inner">
     <div className="flip-card-front">
