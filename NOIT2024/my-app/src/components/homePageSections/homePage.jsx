@@ -11,10 +11,10 @@ export function HomePage(){
     return(
         <>
         <Header/>
-        <About />
-        <BookCategory />
         <AllCategories />
         <FamousBooks books={topBooks}/>
+        <About />
+        <BookCategory />
         <Footer />
         </>
     )
