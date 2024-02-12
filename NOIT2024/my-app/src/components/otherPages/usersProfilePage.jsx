@@ -7,6 +7,7 @@ import { Fragment, useContext, useEffect, useState } from "react";
 import './CategoriesPage.scss'
 import './CategoryPage.scss'
 import './userProfile.scss'
+import ReactPaginate from 'react-paginate';
 import { ReadMore } from "./ReadMoreINfo";
 import useLike from "../../hooks/useLike";
 import { NavProfile } from "../partial/navProfilePage";
@@ -25,6 +26,9 @@ export function UserProfilePage(){
   const{clicked, setLike} = useLike()
 
   const navigate = useNavigate()
+
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 24;
 
   useEffect(() => {
     async function getBooks() {
@@ -46,6 +50,15 @@ export function UserProfilePage(){
   
     getBooks();
   }, [location.pathname]);
+
+  const startOffset = itemOffset;
+    const endOffset = Math.min(startOffset + itemsPerPage, bookData.length);
+    const currentItems = bookData.slice(startOffset, endOffset);
+    const pageCount = Math.ceil(bookData.length / itemsPerPage);
+    const handlePageClick = (event) => {
+      const newOffset = (event.selected * itemsPerPage) % bookData.length;
+      setItemOffset(newOffset);
+    };
 
   const userId = location.pathname.split("/")[1];
 
@@ -117,8 +130,19 @@ export function UserProfilePage(){
         </section>
       </div>
       <h3 className="profile-names">Създадени книги</h3>
+      {bookData.length > 0 &&
+        <ReactPaginate
+        breakLabel="..."
+        nextLabel=">>"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={8}
+        pageCount={pageCount}
+        previousLabel="<<"
+        renderOnZeroPageCount={null}
+        containerClassName="pagination"
+      />
+      }
       <div className="profile-tabs">
-        
           {bookData.length > 0 ? (
     bookData.map((books) =>
         <div className=" flip-card">
