@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import cors from 'cors';
+import cors from './middlewares/cors.js';
 
 import roleRoute from "./routes/role.js";
 import authRoute from './routes/auth.js';
@@ -28,12 +28,7 @@ app.use("/data/users/", userRoute)
 app.use("/data/books/", bookRoute);
 app.use("/data/comments/", commentRoute);
 
-app.use(cors({
-    origin: ["https://book-kingdom-client.vercel.app"],
-    methods: ["POST", "GET", "PATCH", "UPDATE", "DELETE"],
-    allowedHeaders: ['Content-Type', 'Access-Control-Allow-Origin'],
-    credentials: true
-}))
+app.use(cors())
 
 app.use((obj, req, res, next) => {
     const statusCode = obj.status || 500;

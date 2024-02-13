@@ -32,9 +32,6 @@ export const CreateCollectionItem = async(req, res, next) => {
 export const GetAllItems = async(req, res, next) => {
     try {
         const books = await Book.find({});
-        res.setHeader('Access-Control-Allow-Origin', 'https://book-kingdom-client.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'GET');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         return next(CreateSuccess(200, "All Books", books))
     } catch (error) {
         return next(CreateError(500, "Something went wrong"));
@@ -44,9 +41,6 @@ export const GetAllItems = async(req, res, next) => {
 export const GetOneItem = async(req, res, next) => {
     try {
         const book = await Book.find({_id: req.params.id});
-        res.setHeader('Access-Control-Allow-Origin', 'https://book-kingdom-client.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'GET');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         if(!book){
             return next(CreateError(400, "Книгата не е намерена"));
         } else {
@@ -60,9 +54,6 @@ export const GetOneItem = async(req, res, next) => {
 export const UpdateOneItem = async(req, res, next) => {
     try {
         const book = await Book.findById({_id: req.params.id})
-        res.setHeader('Access-Control-Allow-Origin', 'https://book-kingdom-client.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'UPDATE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         if(book){
             const newData = await Book.findByIdAndUpdate(
                 req.params.id,
@@ -81,9 +72,6 @@ export const UpdateOneItem = async(req, res, next) => {
 export const PartiallyUpdateOneItem = async (req, res, next) => {
     try {
         const book = await Book.findById({ _id: req.params.id });
-        res.setHeader('Access-Control-Allow-Origin', 'https://book-kingdom-client.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'PATCH');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         
         if (book) {
             const updatedFields = Object.keys(req.body).reduce((accumulator, key) => {
@@ -111,9 +99,6 @@ export const deleteOneItem = async(req, res, next) => {
     try {
         const bookId = req.params.id;
         const book = await Book.findById({_id: bookId});
-        res.setHeader('Access-Control-Allow-Origin', 'https://book-kingdom-client.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         if(book){
             await Book.findByIdAndDelete(bookId)
             return next(CreateSuccess(200, "Book Deleted"))

@@ -11,10 +11,6 @@ export const CreateCollectionItem = async(req, res, next) => {
         ownerId: req.body.ownerId
     })
 
-    res.setHeader('Access-Control-Allow-Origin', 'https://book-kingdom-client.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'POST');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
     await newComment.save();
     return next(CreateSuccess(200, "Comment Created Successfully!"))
 }
