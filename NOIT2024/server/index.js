@@ -47,9 +47,9 @@ app.use((obj, req, res, next) => {
 
 
 
+ mongoose.connect("mongodb+srv://Sonya:xNmqaUbfC.c!a3d@cluster0.qcxirgw.mongodb.net/?retryWrites=true&w=majority")
 const connectMongoDB = async() => {
     try {
-        await mongoose.connect("mongodb+srv://Sonya:xNmqaUbfC.c!a3d@cluster0.qcxirgw.mongodb.net/?retryWrites=true&w=majority")
         //await mongoose.connect(process.env.MONGO_URL);
         console.log("Connected to Database!");
     } catch (error) {
@@ -57,23 +57,9 @@ const connectMongoDB = async() => {
     }
 }
 
-// app.get('/data/random-image', async (req, res) => {
-//     try {
-//       const folderPath = path.join(__dirname, '../Happtizens Character Creator Set/PNG');
-//       const files = await fs.readdir(folderPath);
-  
-//       const randomIndex = Math.floor(Math.random() * files.length);
-//       const randomImage = files[randomIndex];
-//       const imagePath = path.join(folderPath, randomImage);
-  
-//       res.json({ imagePath });
-//     } catch (error) {
-//       console.error('Error reading folder:', error);
-//       res.status(500).json({ error: 'Internal Server Error' });
-//     }
-//   });
+// connectMongoDB()
 
-app.listen("book-kingdom-server.vercel.app", () => {
-    connectMongoDB()
-    console.log("Connected to backend");
-})
+// app.listen("book-kingdom-server.vercel.app", () => {
+//     connectMongoDB()
+//     console.log("Connected to backend");
+// })
