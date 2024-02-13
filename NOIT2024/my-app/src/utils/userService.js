@@ -21,7 +21,8 @@ export const setPoints = async(points, id) => {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
-            "X-Authorization": localStorage.getItem("accessToken")
+            "X-Authorization": localStorage.getItem("accessToken"),
+            'Access-Control-Allow-Origin': 'https://book-kingdom-client.vercel.app'
         },
         body: JSON.stringify(body),
     })
@@ -67,7 +68,8 @@ export const register = async(data) =>{
     let response = await fetch(baseUrlRegister, {
         method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'https://book-kingdom-client.vercel.app'
         },
         body: JSON.stringify(body),
     })
