@@ -28,6 +28,12 @@ app.use("/data/users/", userRoute)
 app.use("/data/books/", bookRoute);
 app.use("/data/comments/", commentRoute);
 
+app.use(cors({
+    origin: ["book-kingdom-server.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
+}))
+
 app.use((obj, req, res, next) => {
     const statusCode = obj.status || 500;
     const message = obj.message || "Something went wrong"
@@ -39,9 +45,12 @@ app.use((obj, req, res, next) => {
     })
 })
 
+
+
 const connectMongoDB = async() => {
     try {
-        await mongoose.connect(process.env.MONGO_URL);
+        await mongoose.connect("mongodb+srv://Sonya:xNmqaUbfC.c!a3d@cluster0.qcxirgw.mongodb.net/?retryWrites=true&w=majority")
+        //await mongoose.connect(process.env.MONGO_URL);
         console.log("Connected to Database!");
     } catch (error) {
         throw error;
