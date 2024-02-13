@@ -30,7 +30,8 @@ app.use("/data/comments/", commentRoute);
 
 app.use(cors({
     origin: ["https://book-kingdom-client.vercel.app"],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "PATCH", "UPDATE", "DELETE"],
+    allowedHeaders: ['Content-Type'],
     credentials: true
 }))
 
