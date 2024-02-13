@@ -17,7 +17,7 @@ export const setPoints = async(points, id) => {
         points: points
     }
 
-    let response = await fetch(`http://localhost:5500/data/users/edit/${id}`, {
+    let response = await fetch(`https://book-kingdom-server.vercel.app/data/users/edit/${id}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export const setVouchers = async(userId, voucher) => {
         vouchers: voucher
     }
 
-    let response = await fetch(`http://localhost:5500/data/users/edit/${userId}`, {
+    let response = await fetch(`https://book-kingdom-server.vercel.app/data/users/edit/${userId}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
