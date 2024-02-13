@@ -73,7 +73,7 @@ const connectMongoDB = async() => {
 //     }
 //   });
 
-app.listen(5500, () => {
+app.listen("book-kingdom-server.vercel.app", () => {
     connectMongoDB()
     console.log("Connected to backend");
 })
