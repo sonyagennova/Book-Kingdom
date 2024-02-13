@@ -5,6 +5,8 @@ import * as userService from "../../utils/userService"
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import "./RegisterPage.scss"
+
 export function RegisterPage(){
   //const accessToken = localStorage.getItem("accessToken")
 

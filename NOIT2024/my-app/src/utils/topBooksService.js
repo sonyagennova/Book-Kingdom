@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:5500/data/books';
+const baseUrl = 'https://book-kingdom-server.vercel.app/data/books';
 
 export const top = async () => {
     const response = await fetch(baseUrl);

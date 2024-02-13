@@ -1,7 +1,7 @@
-const baseUrlRegister = "http://localhost:5500/users/register";
-const loginUrl = "http://localhost:5500/users/login"
-const baseUrl = "http://localhost:5500/users/"
-const logoutUrl = "http://localhost:5500/users/logout"
+const baseUrlRegister = "https://book-kingdom-server.vercel.app/users/register";
+const loginUrl = "https://book-kingdom-server.vercel.app/users/login"
+const baseUrl = "https://book-kingdom-server.vercel.app/users/"
+const logoutUrl = "https://book-kingdom-server.vercel.app/users/logout"
 
 import images from '../utils/imageFilenames.js';
 
