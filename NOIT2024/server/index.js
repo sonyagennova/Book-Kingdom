@@ -47,9 +47,9 @@ app.use((obj, req, res, next) => {
 
 
 
- mongoose.connect("mongodb+srv://Sonya:xNmqaUbfC.c!a3d@cluster0.qcxirgw.mongodb.net/?retryWrites=true&w=majority")
 const connectMongoDB = async() => {
     try {
+        await mongoose.connect("mongodb+srv://Sonya:xNmqaUbfC.c!a3d@cluster0.qcxirgw.mongodb.net/?retryWrites=true&w=majority")
         //await mongoose.connect(process.env.MONGO_URL);
         console.log("Connected to Database!");
     } catch (error) {
@@ -60,7 +60,7 @@ const connectMongoDB = async() => {
 // connectMongoDB()
 
 
-// app.listen("book-kingdom-server.vercel.app", () => {
-//     connectMongoDB()
-//     console.log("Connected to backend");
-// })
+app.listen(5500, () => {
+    connectMongoDB()
+    console.log("Connected to backend");
+})
