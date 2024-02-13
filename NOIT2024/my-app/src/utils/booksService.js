@@ -1,5 +1,5 @@
 //const baseUrl = 'http://localhost:5500/data/books';
-const baseUrl = "https://book-kingdom-server.vercel.app/data/books"
+const baseUrl = "book-kingdom-server.vercel.app/data/books"
 const token = localStorage.getItem("accessToken");
 
 export const getAll = async () => {
