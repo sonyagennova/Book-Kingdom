@@ -3,22 +3,14 @@ const baseUrl = "https://book-kingdom-server.vercel.app/data/books"
 const token = localStorage.getItem("accessToken");
 
 export const getAll = async () => {
-    const response = await fetch(baseUrl, {
-        headers: {
-            "Access-Control-Allow-Origin": "https://book-kingdom-server.vercel.app" 
-        }
-    });
+    const response = await fetch(baseUrl);
     const result = await response.json();
 
     return result.data;
 };
 
 export const getByCategory = async (category) => {
-    const response = await fetch(`${baseUrl}`, {
-        headers: {
-            "Access-Control-Allow-Origin": "https://book-kingdom-server.vercel.app" 
-        }
-    })
+    const response = await fetch(`${baseUrl}`)
     const result = await response.json();
     Array.from(result).forEach(book => {
         if(book.category.toString().toLowerCase() == category){
@@ -28,11 +20,7 @@ export const getByCategory = async (category) => {
 }
 
 export const getOne = async (bookId) => {
-    const response = await fetch(`${baseUrl}/${bookId}`, {
-        headers: {
-            "Access-Control-Allow-Origin": "https://book-kingdom-server.vercel.app" 
-        }
-    });
+    const response = await fetch(`${baseUrl}/${bookId}`);
     const result = await response.json();
     return result.data[0];
 };
