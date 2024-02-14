@@ -2,6 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
+import createProxyMiddleware from "http-proxy-middleware";
+
 // import cors from './middlewares/cors.js';
 import cors from 'cors';
 import roleRoute from "./routes/role.js";
@@ -18,15 +20,15 @@ dotenv.config();
 
 app.use(express.json());
 app.use(cookieParser())
-app.use(cors());
+//app.use(cors());
 
 app.use(express.static('public'))
 
-app.use("/roles/", roleRoute)
-app.use("/users/", authRoute)
-app.use("/data/users/", userRoute)
-app.use("/data/books/", bookRoute);
-app.use("/data/comments/", commentRoute);
+app.use("/roles/", () => { createProxyMiddleware({ target: 'book-kingdom-client.vercel.app', changeOrigin: true }); roleRoute})
+app.use("/users/", () => { createProxyMiddleware({ target: 'book-kingdom-client.vercel.app', changeOrigin: true }); authRoute})
+app.use("/data/users/", () => { createProxyMiddleware({ target: 'book-kingdom-client.vercel.app', changeOrigin: true }); userRoute})
+app.use("/data/books/", () => { createProxyMiddleware({ target: 'book-kingdom-client.vercel.app', changeOrigin: true }); bookRoute});
+app.use("/data/comments/", () => { createProxyMiddleware({ target: 'book-kingdom-client.vercel.app', changeOrigin: true }); commentRoute});
 
 app.use(cors())
 
