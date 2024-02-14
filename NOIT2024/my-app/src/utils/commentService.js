@@ -22,6 +22,7 @@ export const editComment = async (data, commentId, accessToken) => {
             'X-Authorization': accessToken
         },
         body: JSON.stringify(body),
+        mode: "cors"
     })
 
     const result = await response.json()
