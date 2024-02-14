@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import createProxyMiddleware from "http-proxy-middleware";
+import { createProxyMiddleware } from "http-proxy-middleware";
 
 // import cors from './middlewares/cors.js';
 import cors from 'cors';
