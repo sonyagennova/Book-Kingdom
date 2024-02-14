@@ -24,7 +24,7 @@ export function NavLogin(){
   <div className="container-fluid">
     <nav className="navbar navbar-expand-lg custom_nav-container">
       <Link className="navbar-brand" to="/">
-      <img src='/static/images/Книжно царство1.png' style={{width: "12rem"}}></img>
+      <img src='/_vercel/image?url={../../static/images/Книжно царство1.png}&w=3840&q=75' style={{width: "12rem"}}></img>
       </Link>
       <div className="" id="">
         {/* <div className="User_option">
