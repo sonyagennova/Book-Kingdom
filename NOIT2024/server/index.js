@@ -31,7 +31,7 @@ app.use("/data/books/", bookRoute);
 app.use("/data/comments/", commentRoute);
 
 app.use(cors({
-    origin: "https://book-kingdom-server.vercel.app",
+    origin: "https://book-kingdom-client.vercel.app",
     methods: ["GET",
     "POST",
     "PUT",
