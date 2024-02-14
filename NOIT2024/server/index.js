@@ -30,7 +30,15 @@ app.use("/data/users/", userRoute)
 app.use("/data/books/", bookRoute);
 app.use("/data/comments/", commentRoute);
 
-app.use(cors())
+app.use(cors({
+    origin: "https://book-kingdom-server.vercel.app",
+    methods: ["GET",
+    "POST",
+    "PUT",
+    "DELETE",
+    "OPTIONS"],
+    credentials: true
+}))
 
 app.use((obj, req, res, next) => {
     const statusCode = obj.status || 500;
