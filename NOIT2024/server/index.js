@@ -36,7 +36,8 @@ app.use((err, req, res, next) => {
 
 const connectMongoDB = async() => {
     try {
-        await mongoose.connect("mongodb+srv://Sonya:xNmqaUbfC.c!a3d@cluster0.qcxirgw.mongodb.net/?retryWrites=true&w=majority")
+        await mongoose.connect(process.env.MONGO_URL)
+        //await mongoose.connect("mongodb+srv://Sonya:xNmqaUbfC.c!a3d@cluster0.qcxirgw.mongodb.net/?retryWrites=true&w=majority")
         console.log("Connected to Database!");
     } catch (error) {
         console.error("Error connecting to MongoDB:", error);
