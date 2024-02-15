@@ -1,5 +1,5 @@
-const baseUrl = 'https://book-kingdom-server.vercel.app/data/comments';
-const baseUrlBooks = 'https://book-kingdom-server.vercel.app/data/books';
+const baseUrl = 'http://localhost:5500/data/comments';
+const baseUrlBooks = 'http://localhost:5500/data/books';
 const token = localStorage.getItem("accessToken");
 
 export const getAllComments = async () => {
@@ -22,7 +22,6 @@ export const editComment = async (data, commentId, accessToken) => {
             'X-Authorization': accessToken
         },
         body: JSON.stringify(body),
-        mode: "cors"
     })
 
     const result = await response.json()
