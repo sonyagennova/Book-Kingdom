@@ -16,7 +16,7 @@ export const register = async (req, res, next) => {
 
     res.setHeader('Access-Control-Allow-Origin', 'https://book-kingdom-client.vercel.app');
     res.setHeader('Access-Control-Allow-Methods', 'POST');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Headers', '*');
 
     // Check if the user with the given email already exists
     const existingUser = await User.findOne({ email: req.body.email });
