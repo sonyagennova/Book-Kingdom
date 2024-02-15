@@ -69,6 +69,7 @@ export const register = async(data) =>{
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': "https://book-kingdom-client.vercel.app"
         },
         body: JSON.stringify(body),
     })
