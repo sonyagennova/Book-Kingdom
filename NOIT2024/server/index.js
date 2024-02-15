@@ -21,7 +21,7 @@ app.use(cors({
     optionsSuccessStatus: 200
 }));
 
-app.use(express.static('/static/'));
+app.use(express.static('../my-app/static'));
 app.use("/roles/", roleRoute);
 app.use("/users/", authRoute);
 app.use("/data/users/", userRoute);
