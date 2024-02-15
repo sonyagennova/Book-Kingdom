@@ -14,7 +14,7 @@ export const register = async (req, res, next) => {
       return next(CreateError(400, "Невалиден имейл формат"));
     }
 
-    res.setHeader('Access-Control-Allow-Origin', 'https://book-kingdom-client.vercel.app');
+    res.setHeader('Access-Control-Allow-Origin', 'https://the-books-kingdom.onrender.com');
     res.setHeader('Access-Control-Allow-Methods', 'POST');
     res.setHeader('Access-Control-Allow-Headers', '*');
 
@@ -65,7 +65,7 @@ export const registerAdmin = async(req, res, next) => {
         roles: role
     });
 
-    res.setHeader('Access-Control-Allow-Origin', 'https://book-kingdom-client.vercel.app');
+    res.setHeader('Access-Control-Allow-Origin', 'https://the-books-kingdom.onrender.com');
     res.setHeader('Access-Control-Allow-Methods', 'POST');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
