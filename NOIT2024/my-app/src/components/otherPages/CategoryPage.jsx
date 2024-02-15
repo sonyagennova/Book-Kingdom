@@ -9,7 +9,7 @@ import { Nav } from "../partial/Navbar";
 import { ReadMore, selectedUser } from "./ReadMoreINfo";
 import './CategoryPage.scss'
 import { Button } from "react-bootstrap";
-import { categorySort, categorySortPath } from "../../utils/category";
+import { categorySort, categorySortPath } from "../../../utils/category";
 export let booksForCategory=[];
 export function CategoryPage(){
     const [selectedBook, setSelectedBook] = useState([]);
