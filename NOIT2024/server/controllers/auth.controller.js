@@ -85,7 +85,7 @@ export const login = async(req, res, next) => {
             return next(CreateError(404, "Потребителят не е намерен"));
         }
 
-        res.setHeader('Access-Control-Allow-Origin', 'https://book-kingdom-client.vercel.app');
+        res.setHeader('Access-Control-Allow-Origin', "https://the-books-kingdom.onrender.com");
         res.setHeader('Access-Control-Allow-Methods', 'POST');
         res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         
