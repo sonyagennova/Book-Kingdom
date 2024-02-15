@@ -1,4 +1,4 @@
-const baseUrlRegister = "https://book-kingdom-server.vercel.app/users/register";
+const baseUrlRegister = "https://book-kingdom-client.vercel.app/users/register";
 const loginUrl = "https://book-kingdom-server.vercel.app/users/login"
 const baseUrl = "https://book-kingdom-server.vercel.app/users/"
 const logoutUrl = "https://book-kingdom-server.vercel.app/users/logout"
