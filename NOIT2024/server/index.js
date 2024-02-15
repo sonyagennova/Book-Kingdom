@@ -15,7 +15,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser())
 app.use(cors({
-    origin: "http://book-kingdom-client.vercel.app",
+    origin: "book-kingdom-client.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true
 }));

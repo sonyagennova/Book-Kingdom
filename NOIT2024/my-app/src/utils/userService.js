@@ -68,8 +68,7 @@ export const register = async(data) =>{
     let response = await fetch(baseUrlRegister, {
         method: "POST",
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': "https://book-kingdom-client.vercel.app"
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(body),
     })
