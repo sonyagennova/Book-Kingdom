@@ -9,31 +9,21 @@ import bookRoute from './routes/book.js'
 import commentRoute from './routes/comment.js'
 import cookieParser from "cookie-parser";
 
-const app = express();
+const app = express()
 dotenv.config();
 
 app.use(express.json());
-app.use(cookieParser());
-//app.use(cors());
+app.use(cookieParser())
+app.use(cors({
+    origin: "https://book-kingdom-client.vercel.app/",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true
+}));
 
-// Add CORS headers middleware
-app.use((req, res, next) => {
-    // Allow requests from specific origins
-    res.setHeader('Access-Control-Allow-Origin', 'https://book-kingdom-client.vercel.app');
-    // Allow specific methods
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    // Allow credentials (cookies, authorization headers, etc.)
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    // Allow specific headers
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    // Continue to the next middleware
-    next();
-});
-
-app.use(express.static('public'))
-app.use("/roles/", roleRoute)
-app.use("/users/", authRoute)
-app.use("/data/users/", userRoute)
+app.use(express.static('public'));
+app.use("/roles/", roleRoute);
+app.use("/users/", authRoute);
+app.use("/data/users/", userRoute);
 app.use("/data/books/", bookRoute);
 app.use("/data/comments/", commentRoute);
 
@@ -43,22 +33,17 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!');
 });
 
-const connectMongoDB = async () => {
+const connectMongoDB = async() => {
     try {
-        await mongoose.connect("mongodb+srv://Sonya:xNmqaUbfC.c!a3d@cluster0.qcxirgw.mongodb.net/?retryWrites=true&w=majority", {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect("mongodb+srv://Sonya:xNmqaUbfC.c!a3d@cluster0.qcxirgw.mongodb.net/?retryWrites=true&w=majority")
         console.log("Connected to Database!");
     } catch (error) {
         console.error("Error connecting to MongoDB:", error);
-        throw error;
+        process.exit(1); // Exit the process on DB connection error
     }
 }
 
-const PORT = process.env.PORT || 5500;
-
-app.listen(PORT, () => {
+app.listen(5500, () => {
     connectMongoDB()
-    console.log(`Server started on port ${PORT}`);
+    console.log("Connected to backend");
 });
