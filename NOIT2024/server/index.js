@@ -15,13 +15,13 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://the-books-kingdom.onrender.com/",
+    origin: "https://the-books-kingdom.onrender.com",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     credentials: true,
     optionsSuccessStatus: 200
 }));
 
-app.use(express.static('static'));
+app.use(express.static('/static/'));
 app.use("/roles/", roleRoute);
 app.use("/users/", authRoute);
 app.use("/data/users/", userRoute);
