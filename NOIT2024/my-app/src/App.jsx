@@ -8,8 +8,6 @@ import { HomePage } from "./components/homePageSections/homePage"
 import { useEffect } from "react"
 import { ProfilePage } from "./components/otherPages/userProfile"
 import { UserProfilePage } from "./components/otherPages/usersProfilePage"
-import * as bookService from "./utils/booksService"
-import * as userService from "./utils/userService"
 
 
 function App() {
