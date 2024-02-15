@@ -45,7 +45,7 @@ const connectMongoDB = async() => {
     }
 }
 
-app.listen(5500, () => {
+app.listen(process.env.PORT, () => {
     connectMongoDB()
     console.log("Connected to backend");
 });
