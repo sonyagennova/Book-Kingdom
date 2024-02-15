@@ -15,7 +15,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://the-books-kingdom.onrender.com/",
+    origin: "https://the-books-kingdom.onrender.com",
     credentials: true,
     optionsSuccessStatus: 200
 }));
