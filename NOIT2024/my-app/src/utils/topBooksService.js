@@ -1,4 +1,4 @@
-const baseUrl = 'https://the-books-kingdom-server.onrender.com/data/books';
+const baseUrl = 'http://localhost:5500/data/books';
 
 export const top = async () => {
     const response = await fetch(baseUrl);

@@ -1,7 +1,7 @@
-const baseUrlRegister = "https://the-books-kingdom-server.onrender.com/users/register";
-const loginUrl = "https://the-books-kingdom-server.onrender.com/users/login"
-const baseUrl = "https://the-books-kingdom-server.onrender.com/users/"
-const logoutUrl = "https://the-books-kingdom-server.onrender.com/users/logout"
+const baseUrlRegister = "http://localhost:5500/users/register";
+const loginUrl = "http://localhost:5500/users/login"
+const baseUrl = "http://localhost:5500/users/"
+const logoutUrl = "http://localhost:5500/users/logout"
 
 import images from '../utils/imageFilenames.js';
 
@@ -17,7 +17,7 @@ export const setPoints = async(points, id) => {
         points: points
     }
 
-    let response = await fetch(`https://the-books-kingdom-server.onrender.com/data/users/edit/${id}`, {
+    let response = await fetch(`http://localhost:5500/data/users/edit/${id}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export const setVouchers = async(userId, voucher) => {
         vouchers: voucher
     }
 
-    let response = await fetch(`https://the-books-kingdom-server.onrender.com/data/users/edit/${userId}`, {
+    let response = await fetch(`http://localhost:5500/data/users/edit/${userId}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ export const register = async(data) =>{
 }
 
 export const getOne = async (userId) => {
-    const response = await fetch(`https://the-books-kingdom-server.onrender.com/data/users/${userId}`,{
+    const response = await fetch(`http://localhost:5500/data/users/${userId}`,{
         method: "GET",
         headers: {
             "X-Authorization": localStorage.getItem("accessToken")
@@ -97,7 +97,7 @@ export const getOne = async (userId) => {
 }
 
 export const deleteUser = async (userId) => {
-    const response  = await fetch(`https://the-books-kingdom-server.onrender.com/data/users/${userId}`, {
+    const response  = await fetch(`http://localhost:5500/data/users/${userId}`, {
         method: "DELETE",
         headers: {
             'X-Authorization': localStorage.getItem("accessToken")
@@ -113,7 +113,7 @@ export const editUserImage = async (userId, data) => {
         userImage: data.imageUrl
     }
 
-    const response = await fetch(`https://the-books-kingdom-server.onrender.com/data/users/edit/${userId}`,{
+    const response = await fetch(`http://localhost:5500/data/users/edit/${userId}`,{
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ export const editUserName = async (userId, data) => {
         name: data.name
     }
 
-    const response = await fetch(`https://the-books-kingdom-server.onrender.com/data/users/edit/${userId}`,{
+    const response = await fetch(`http://localhost:5500/data/users/edit/${userId}`,{
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ export const editUserName = async (userId, data) => {
 }
 
 export const getAll = async() => {
-    const response = await fetch('/data/users')
+    const response = await fetch('http://localhost:5500/data/users')
     const result = await response.json()
     return result
 }
