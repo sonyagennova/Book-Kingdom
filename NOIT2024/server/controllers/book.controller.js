@@ -7,9 +7,9 @@ export const CreateCollectionItem = async(req, res, next) => {
         req.body.imageUrl = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.P-nIodv7WzkQ4wYYPsXWaQAAAA%26pid%3DApi&f=1&ipt=5f877b9f0be93f5eaeb93b2edeca8109f41b702002a3c45bf481c76a7c7e5c68&ipo=images"
     }
 
-    res.setHeader('Access-Control-Allow-Origin', "https://the-books-kingdom.onrender.com");
-    res.setHeader('Access-Control-Allow-Methods', 'POST');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    // res.setHeader('Access-Control-Allow-Origin', "https://the-books-kingdom.onrender.com");
+    // res.setHeader('Access-Control-Allow-Methods', 'POST');
+    // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
     const newBook = new Book({
         title: req.body.title,

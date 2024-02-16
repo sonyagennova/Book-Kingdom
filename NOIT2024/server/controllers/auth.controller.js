@@ -14,9 +14,9 @@ export const register = async (req, res, next) => {
       return next(CreateError(400, "Невалиден имейл формат"));
     }
 
-    res.setHeader('Access-Control-Allow-Origin', 'https://the-books-kingdom.onrender.com');
-    res.setHeader('Access-Control-Allow-Methods', 'POST');
-    res.setHeader('Access-Control-Allow-Headers', '*');
+    // res.setHeader('Access-Control-Allow-Origin', 'https://the-books-kingdom.onrender.com');
+    // res.setHeader('Access-Control-Allow-Methods', 'POST');
+    // res.setHeader('Access-Control-Allow-Headers', '*');
 
     // Check if the user with the given email already exists
     const existingUser = await User.findOne({ email: req.body.email });
@@ -65,9 +65,9 @@ export const registerAdmin = async(req, res, next) => {
         roles: role
     });
 
-    res.setHeader('Access-Control-Allow-Origin', 'https://the-books-kingdom.onrender.com');
-    res.setHeader('Access-Control-Allow-Methods', 'POST');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    // res.setHeader('Access-Control-Allow-Origin', 'https://the-books-kingdom.onrender.com');
+    // res.setHeader('Access-Control-Allow-Methods', 'POST');
+    // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
     await newUser.save();
     return next(CreateSuccess(200, "User Registered", [], uniqid()));
@@ -85,9 +85,9 @@ export const login = async(req, res, next) => {
             return next(CreateError(404, "Потребителят не е намерен"));
         }
 
-        res.setHeader('Access-Control-Allow-Origin', "https://the-books-kingdom.onrender.com");
-        res.setHeader('Access-Control-Allow-Methods', 'POST');
-        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+        // res.setHeader('Access-Control-Allow-Origin', "https://the-books-kingdom.onrender.com");
+        // res.setHeader('Access-Control-Allow-Methods', 'POST');
+        // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         
         const isPasswordCorrect = await bcryptjs.compare(req.body.password, user.password);
         if(!isPasswordCorrect){
