@@ -23,6 +23,8 @@ export function ProfilePage(){
   const [userImage, setUserImage] = useState('');
   const [disabledButton, setDisabledButton] = useState(false);
 
+  const [userBooks, setUserBooks] = useState([])
+
   const [openModal, setOpenModal] = useState(false);
   const [editProfile, setEditProfile] = useState(false)
   const [userName, setUserName] = useState("");
@@ -35,7 +37,7 @@ export function ProfilePage(){
   const{clicked, setLike} = useLike()
 
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 24;
+  const itemsPerPage = 8;
 
   const userId = localStorage.getItem("auth").split(',')[2];
 
@@ -48,12 +50,20 @@ export function ProfilePage(){
         setLike()
     }, [])
 
-    const startOffset = itemOffset;
-    const endOffset = Math.min(startOffset + itemsPerPage, books.length);
-    const currentItems = books.slice(startOffset, endOffset);
-    const pageCount = Math.ceil(books.length / itemsPerPage);
+    useEffect(() => {
+      // Filter the books owned by the user
+      const userOwnedBooks = books.filter(book => book.ownerId === localStorage.getItem("auth").split(",")[2]);
+      setUserBooks(userOwnedBooks);
+    }, [books]); // Trigger the effect whenever the books array changes
+    
+    // Calculate pagination
+    const pageCount = Math.ceil(userBooks.length / itemsPerPage);
+    const endOffset = Math.min(itemOffset + itemsPerPage, userBooks.length);
+    const currentItems = userBooks.slice(itemOffset, endOffset);
+    
+    // Handle page click event
     const handlePageClick = (event) => {
-      const newOffset = (event.selected * itemsPerPage) % books.length;
+      const newOffset = event.selected * itemsPerPage;
       setItemOffset(newOffset);
     };
 
@@ -271,7 +281,7 @@ export function ProfilePage(){
         breakLabel="..."
         nextLabel=">>"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={8}
+        pageRangeDisplayed={4}
         pageCount={pageCount}
         previousLabel="<<"
         renderOnZeroPageCount={null}

@@ -67,26 +67,25 @@ export function CategoryPage(){
       setBooksForCategory(filteredBooks);
   }, [books, Lowercategory]);
 
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = booksForCategory.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(booksForCategory.length / itemsPerPage);
-    const pathCategory = categorySortPath(Lowercategory);
+  const pathCategory = categorySortPath(Lowercategory);
+  const endOffset = Math.min(itemOffset + itemsPerPage, booksForCategory.length);
+const currentItems = booksForCategory.slice(itemOffset, endOffset);
 
-    books.forEach(book => {
-        if(book.category == Lowercategory){
-            booksForCategory.push(book);
-        }
-    })
+// Invoke when user clicks to request another page
+const handlePageClick = (event) => {
+  const newOffset = event.selected * itemsPerPage;
+  console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
+  setItemOffset(newOffset);
+};
 
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-
-  // Invoke when user click to request another page.
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % booksForCategory.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
-    setItemOffset(newOffset);}
+// Update booksForCategory when category or books change
+useEffect(() => {
+  if (Lowercategory) {
+    const filteredBooks = books.filter(book => book.category === Lowercategory);
+    setBooksForCategory(filteredBooks);
+  }
+}, [books, Lowercategory]);
 
     
     const bookInfoCloseHandler = () => {
