@@ -51,9 +51,9 @@ export function Discount({showModal, closeModal}){
         </Modal.Header>
         <Modal.Body>Поадравления! Вие спечелихте <span style={{color: "tomato"}}>10% намаление</span> от издателство!</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={closeModal}>
+          {/* <Button variant="secondary" onClick={closeModal}>
             Затвори
-          </Button>
+          </Button> */}
           <Button variant="primary" disabled={isDisabled} onClick={onPublishingHouseBtnClicked}>
             Избери издателство
           </Button>
@@ -63,7 +63,7 @@ export function Discount({showModal, closeModal}){
 
     {publishing_house && 
         <>
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show}>
           <Modal.Header closeButton>
             <Modal.Title>Избери издателство</Modal.Title>
           </Modal.Header>

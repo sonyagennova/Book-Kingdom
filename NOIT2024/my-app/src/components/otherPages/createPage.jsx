@@ -37,17 +37,17 @@ export function CreatePage(){
     
     try {
       const result = await userService.getOne(userId);
-      const updatedPoints = Number(result.points == null ? result.points = 0: result.points) + 1;
+      const updatedPoints = Number(result.points || 0) + 1; // Use 0 if points is null or undefined
       setPoints(updatedPoints);
-      
-      // Now, update the user's points
+    
       await userService.setPoints(updatedPoints, userId);
-      // Continue with any other logic after updating points
+    
+      // Check if the points are not a multiple of 20 or 0, then navigate
+      if (updatedPoints % 20 !== 0 || updatedPoints === 0) {
+        navigate("/categories");
+      }
     } catch (error) {
       console.error("Error:", error);
-    }
-    if(points % 20 !== 0 || points == 0){
-      navigate("/categories")
     }
   };
     return(
