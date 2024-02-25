@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:5500/data/comments';
-const baseUrlBooks = 'http://localhost:5500/data/books';
+const baseUrl = 'https://the-books-kingdom-server.onrender.com/data/comments';
+const baseUrlBooks = 'https://the-books-kingdom-server.onrender.com/data/books';
 const token = localStorage.getItem("accessToken");
 
 export const getAllComments = async () => {

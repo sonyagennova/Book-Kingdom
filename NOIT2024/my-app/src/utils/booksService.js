@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:5500/data/books';
+const baseUrl = 'https://the-books-kingdom-server.onrender.com/data/books'; //http://localhost:5500
 const token = localStorage.getItem("accessToken");
 
 export const getAll = async () => {
