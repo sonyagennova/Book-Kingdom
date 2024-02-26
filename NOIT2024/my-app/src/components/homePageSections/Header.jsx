@@ -56,7 +56,7 @@ export function Header(){
                 </div>
                 <div className="col-md-6">
                   <div className="img-box">
-                    <img src="/static/images/Open Doodles - Reflecting.png" alt="" />
+                    <img src="./public/static/images/Open Doodles - Reflecting.png" alt="" />
                   </div>
                 </div>
               </div>
