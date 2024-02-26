@@ -23,8 +23,8 @@ export function Nav(){
           <Link className="navbar-brand" to="/">
             {/* <img src="./static/images/logo.png" alt="" /> */}
             {location.href.includes("/me") ?
-              <img src='../../static/images/Книжно царство2.png' style={{width: "12rem"}}></img>:
-              <img src='../../static/images/Книжно царство1.png' style={{width: "12rem"}}></img>
+              <img src='../../public/static/images/Книжно царство2.png' style={{width: "12rem"}}></img>:
+              <img src='/public/static/images/Книжно царство1.png' style={{width: "12rem"}}></img>
             }
           </Link>
           <div className="" id="">
