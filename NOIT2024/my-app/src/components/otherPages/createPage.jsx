@@ -73,7 +73,7 @@ export function CreatePage(){
               <input type="text" name="publication_year" placeholder="Година на издаване" />
             </div>
             <div>
-              <input type="text" name="description" placeholder="Резюме" rows="5" cols="80"/>
+              <textarea type="text" name="description" placeholder="Резюме" rows="5" cols="80"/>
             </div>
             <div>
               <input type="text" name="imageUrl" placeholder="URL линк за корица" />
