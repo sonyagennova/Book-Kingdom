@@ -85,7 +85,7 @@ export function Header(){
                 </div>
                 <div className="col-md-6">
                 <div className="img-box">
-                    <img src="./static/images/Open Doodles - Studying.png" alt="" />
+                    <img src="/static/images/Open Doodles - Studying.png" alt="" />
                   </div>
                 </div>
               </div>
