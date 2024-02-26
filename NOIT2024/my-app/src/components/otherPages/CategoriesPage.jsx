@@ -113,7 +113,7 @@ export function CategoriesPage(){
                 <Link to="/category/classic"><img src="https://images.unsplash.com/photo-1531079997448-485eb7235a2b?auto=format&fit=crop&q=80&w=3087&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></Link>
               </div>
               <div className="detail-box">
-                <h5>Клсика</h5>
+                <h5>Клaсика</h5>
               </div>
             </div>
           </div>
