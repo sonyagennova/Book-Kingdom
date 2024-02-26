@@ -100,8 +100,8 @@ export function CreatePage(){
         </div>
       </div>
       <div className="col-md-6 px-0">
-  <div className="map_container" style={{height: '725px', overflow: 'hidden', marginLeft: '45px'}}>
-    <div className="map-responsive" style={{height: '100%'}}>
+  <div className="map_container" >
+    <div className="map-responsive">
       <img src="./static/images/books-8.png" width={500}/>
     </div>
   </div>
