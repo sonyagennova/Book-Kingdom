@@ -4,11 +4,7 @@ import * as userService from "./userService"
 export async function logout(e){
     e.preventDefault()
 
-    const navigate = useNavigate()
+    await userService.logout();
 
-    userService.logout();
-
-    navigate("/")
-
-    //location.href = "/"
+    location.href = "/"
 }
