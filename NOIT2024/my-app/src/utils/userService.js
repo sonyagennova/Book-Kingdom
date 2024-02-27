@@ -186,7 +186,7 @@ export const logout = async () => {
         // Perform logout request
         await fetch(logoutUrl, {
             method: "GET", 
-            headers: {"X-Authorization": accessToken}
+            headers: {"X-Authorization": localStorage.getItem("accessToken")}
         });
 
         // Remove tokens and authentication data from localStorage
