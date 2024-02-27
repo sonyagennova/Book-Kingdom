@@ -5,5 +5,5 @@ export async function logout(e){
 
     userService.logout();
 
-    //location.href = "/"
+    location.href = "/"
 }
