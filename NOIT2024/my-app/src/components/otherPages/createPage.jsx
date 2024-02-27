@@ -99,9 +99,9 @@ export function CreatePage(){
           </form>
         </div>
       </div>
-      <div className="col-md-6 px-0">
-  <div className="map_container" >
-    <div className="map-responsive">
+      <div classname="col-md-6 px-0">
+  <div classname="map_container" >
+    <div classname="map-responsive">
       <img src="./static/images/books-8.png" width={500}/>
     </div>
   </div>
