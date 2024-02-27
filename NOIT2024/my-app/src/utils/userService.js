@@ -181,12 +181,19 @@ export const login = async(data) =>{
     return result;
 }
 
-export const logout = async() =>{
-    await fetch(logoutUrl, {
-        method: "GET", 
-        //headers: {"X-Authorization": accessToken}
-    })
+export const logout = async () => {
+    try {
+        // Perform logout request
+        await fetch(logoutUrl, {
+            method: "GET", 
+            headers: {"X-Authorization": accessToken}
+        });
 
-    localStorage.removeItem("accessToken")
-    localStorage.removeItem("auth")
-}
+        // Remove tokens and authentication data from localStorage
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("auth");
+        
+    } catch (error) {
+        console.error("Logout failed:", error);
+    }
+};
