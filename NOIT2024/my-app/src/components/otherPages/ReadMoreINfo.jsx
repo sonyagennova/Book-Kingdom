@@ -219,7 +219,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
                     justifyContent: "center"
                   }}>
                 <div >
-                    <img style={{marginRight: "50px", width:"400px"}} src={book.imageUrl} alt={book.title}/>
+                    <img style={{marginRight: "50px", width:"90%"}} src={book.imageUrl} alt={book.title}/>
                 </div>
                 <div>
                     {showEdit? <Edit key={bookId} setBook={setBook} setShowInfo={setShowInfo} category={category} bookId={bookId} book={book} setShowEdit={setShowEdit} show={showEdit} hideEditButton={setHideEditButton}/>:
