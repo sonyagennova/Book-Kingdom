@@ -184,7 +184,9 @@ useEffect(() => {
                 </div></section>
                 </>
                 {loading ? ( // Показва спинър, докато информацията се зарежда
+     <div className="spinner-border" role="status">
      <span class="loader"></span>
+    </div>
     ) : ( <>
                 <div className="book-box">
                 <div style={{marginLeft: "30px"}} className="d-flex justify-content-start">
