@@ -183,11 +183,6 @@ useEffect(() => {
                 </div>
                 </div></section>
                 </>
-                {loading ? ( // Показва спинър, докато информацията се зарежда
-     <div className="spinner-border" role="status">
-     <span class="loader"></span>
-    </div>
-    ) : ( <>
                 <div className="book-box">
                 <div style={{marginLeft: "30px"}} className="d-flex justify-content-start">
                     <Button className="book-box-button" onClick={goToCategories} variant="dark">
@@ -202,6 +197,11 @@ useEffect(() => {
 
                 </div>
                 
+                    {loading ? ( // Показва спинър, докато информацията се зарежда
+         <div className="spinner-border" role="status">
+         <span class="loader"></span>
+        </div>
+        ) : ( <>
                 {ifBook?
                     <>
                     <ReactPaginate
@@ -240,8 +240,8 @@ useEffect(() => {
                     </div>
                 </div>
                 }
-                </div>
         </>)}
+                </div>
             </section>
             
             <Footer />
