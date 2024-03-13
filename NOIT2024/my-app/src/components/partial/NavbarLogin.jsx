@@ -27,12 +27,12 @@ export function NavLogin(){
       <img src='../../static/images/Книжно царство1.png' style={{width: "12rem"}}></img>
       </Link>
       <div className="" id="">
-        {/* <div className="User_option">
+        <div className="User_option">
           <form className="form-inline my-2  mb-3 mb-lg-0">
             <input type="search" placeholder="Search" />
             <button className="btn   my-sm-0 nav_search-btn" type="submit" />
           </form>
-        </div> */}
+        </div>
         <div className="custom_menu-btn">
           <button onClick={openNav}>
             <span className="s-1"></span>
