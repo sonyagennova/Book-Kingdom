@@ -139,11 +139,7 @@ useEffect(() => {
         <>
         <div className="hero_area1 ">
             <section className="animal_section1">
-            {loading ? ( // Показва спинър, докато информацията се зарежда
-      <div className="spinner-border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    ) : ( <>
+            
             {showInfo &&
                 <ReadMore
                     key={selectedBook}
@@ -188,6 +184,11 @@ useEffect(() => {
                 </div></section>
                 </>
                 <div className="book-box">
+                {loading ? ( // Показва спинър, докато информацията се зарежда
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    ) : ( <>
                 <div style={{marginLeft: "30px"}} className="d-flex justify-content-start">
                     <Button className="book-box-button" onClick={goToCategories} variant="dark">
                         Всички категории
@@ -238,8 +239,9 @@ useEffect(() => {
 
                     </div>
                 </div>
-                }</div>
-</>)}
+                }
+        </>)}
+                </div>
             </section>
             
             <Footer />
