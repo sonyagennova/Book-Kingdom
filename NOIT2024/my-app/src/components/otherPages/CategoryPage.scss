@@ -66,18 +66,15 @@
   }
 
   @media screen and (max-width: 650px) {
-    .book-box{
+    .book-box {
       margin-top: 50px;
     }
-    .book-box-button{
+    
+    .book-box-button {
       margin-right: 5px;
     }
-
+    
     .pagination {
-      display: flex;
-      justify-content: flex-end;
-      //list-style: none;
-      padding: 0;
       margin-right: 5px;
     }
   }
