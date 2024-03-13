@@ -20,6 +20,8 @@ export function CategoryPage(){
     const [booksForCategory, setBooksForCategory] = useState([]);
 
     const [Lowercategory, setCategoryLower] = useState("");
+
+    const [loading, setLoading] = useState(false);
     
     const itemsPerPage = 8
     let categoryBooks = [];
@@ -48,11 +50,13 @@ export function CategoryPage(){
     console.log(category)
 
     useEffect(() => {
+        setLoading(true);
         booksService.getAll()
         .then(result => {
             setBooks(result)
         })
         .catch(err => console.log(err))
+        .finally(() => setLoading(false));
     }, [])
 
     useEffect(() => {
@@ -135,7 +139,11 @@ useEffect(() => {
         <>
         <div className="hero_area1 ">
             <section className="animal_section1">
-            
+            {loading ? ( // Показва спинър, докато информацията се зарежда
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    ) : ( <>
             {showInfo &&
                 <ReadMore
                     key={selectedBook}
@@ -231,6 +239,7 @@ useEffect(() => {
                     </div>
                 </div>
                 }</div>
+</>)}
             </section>
             
             <Footer />
