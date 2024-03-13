@@ -1,5 +1,5 @@
 import {Footer} from "../homePageSections/Footer";
-import {Info} from "../homePageSections/InfoSection";
+// import {Info} from "../homePageSections/InfoSection";
 import {NavLogin} from "../partial/NavbarLogin";
 import * as userService from "../../utils/userService"
 import { useNavigate } from "react-router-dom";
@@ -55,9 +55,9 @@ export function Login() {
                                 </form>
                             </div>
                         </div>
-                        <div classname="col-md-6 px-0">
-                            <div classname="map_container">
-                                <div classname="map-responsive">
+                        <div className="col-md-6 px-0">
+                            <div>
+                                <div className="map-responsive">
                                     <img src="./static/images/books-5.png"
                                         width={500}/>
                                 </div>

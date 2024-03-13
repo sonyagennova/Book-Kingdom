@@ -48,7 +48,7 @@ export function NavLogin(){
                 {localStorage.getItem("accessToken")?
                   <>
                   <Link to="/me">Моят профил</Link>
-                  <Link to="/add">Създай книга</Link>
+                  <Link to="/add">Създай публикация</Link>
                   <Link onClick={logout}>Излез</Link></>:
                   <><Link to="/login">Влез</Link>
                   <Link to="/register">Регистрация</Link></>

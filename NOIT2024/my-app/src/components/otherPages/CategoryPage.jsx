@@ -187,7 +187,7 @@ useEffect(() => {
 
                     {localStorage.getItem("auth") && 
                     <Button className="book-box-button" onClick={() => navigate("/add")} variant="dark">
-                        Създай книга
+                        Създай публикация
                     </Button>
                     }
 

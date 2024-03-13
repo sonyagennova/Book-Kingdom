@@ -1,62 +1,79 @@
 .layout_padding {
-    padding-top: 120px;
-    padding-bottom: 120px;
+  padding-top: 120px;
+  padding-bottom: 120px;
 }
 
 .pet_section .row {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  
-  .pet_section .img-box {
-    position: relative;
-    padding-right: 45px;
-  }
-  
-  .pet_section .img-box img {
-    width: 110%;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .pet_section .img-box::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -145px;
-    width: 100%;
-    height: 110%;
-    background-image: url(../images/pet-bg-1.png);
-    z-index: 1;
-    background-repeat: no-repeat;
-  }
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
 
-  .pet_section .detail-box p {
-    color: #0e0e0e;
-    margin-top: 15px;
+.pet_section .img-box {
+  position: relative;
+  padding-right: 45px;
+}
+
+.pet_section .img-box img {
+  width: 110%;
+  position: relative;
+  z-index: 2;
+}
+
+.pet_section .img-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -145px;
+  width: 100%;
+  height: 110%;
+  background-image: url(../images/pet-bg-1.png);
+  z-index: 1;
+  background-repeat: no-repeat;
+}
+
+.pet_section .detail-box p {
+  color: #0e0e0e;
+  margin-top: 15px;
+}
+
+.pet_section .detail-box .btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+.pet_section .detail-box .btn-box a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  /* color: #e7d619; */
+  color: #ea6992;
+  text-transform: uppercase;
+}
+
+.all {
+  margin-left: 4px;
+
+}
+
+.pet_section .detail-box .btn-box a img {
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 862px) {
+  .all {
+    display: none;
   }
-  
-  .pet_section .detail-box .btn-box {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 8px;
-    margin-top: 25px;
-  }
-  
+}
+
+@media screen and (max-width: 574px) {
   .pet_section .detail-box .btn-box a {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    /* color: #e7d619; */
-    color: #ea6992;
-    text-transform: uppercase;
+    font-size: 11px;
   }
-  
-  .pet_section .detail-box .btn-box a img {
-    margin-left: 5px;
-  }
+}

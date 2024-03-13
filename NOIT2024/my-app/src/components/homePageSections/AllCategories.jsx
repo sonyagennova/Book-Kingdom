@@ -18,16 +18,16 @@ export function AllCategories(){
                   <h2>Царство от царства</h2>
                 </div>
                 <p>
-                  Всяка книга тук живее в царството на своя жанр. Към всяко царство можете да добавите книга или просто да се разходите и разгледате вече съществуващите.
+                  Всяка книга тук живее в царството на своя жанр. Към всяко царство можете да добавите резюме на книга или просто да се разходите и разгледате вече съществуващите.
                 </p>
                 <div className="btn-box">
                   <Link to="/categories">
-                    <span>Виж всички</span>
+                    <span>Виж </span> <span className="all"> всички</span>
                     <img src="./static/images/link-arrow-1.png" alt="" />
                   </Link>
                   {localStorage.getItem("auth") &&
                   <Link to="/add">
-                    <span>Добави книга</span>
+                    <span>Добави</span>
                     <img src="./static/images/link-arrow-1.png" alt="" />
                   </Link>
                   }

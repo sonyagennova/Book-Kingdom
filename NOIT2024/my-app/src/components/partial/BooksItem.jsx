@@ -57,7 +57,7 @@ export function BooksItem({
             <>
               {['success'].map((variant) => (
                 <Alert key={variant} variant={variant}>
-                  Харесахте тази книга!
+                  Харесахте тази публикация!
                 </Alert>
               ))}
             </>

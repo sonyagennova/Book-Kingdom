@@ -1,4 +1,4 @@
-//точки за отсъпка за издателство на всяка книга се оставя по 1 точка, при 20 точки - 10 % отстъпка от някое от предоставените издателства. да сложа банер "Печели докато споделяш"
+//точки за отсъпка за издателство на всяка публикация се оставя по 1 точка, при 20 точки - 10 % отстъпка от някое от предоставените издателства. да сложа банер "Печели докато споделяш"
 
 
 import { useEffect, useState } from "react";
@@ -14,6 +14,7 @@ import { ProfilePage } from "./userProfile";
 import useLike, { count } from "../../hooks/useLike";
 import { LikeButton } from "../partial/LikeButton";
 import { categorySortPath } from "../../utils/category";
+import './ReadMoreINfo.scss';
 
 export let selectedUser = "";
 
@@ -82,7 +83,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
     const deleteBook = async (e) => {
       e.preventDefault()
       try {
-        const deleteConfirmed = window.confirm("Сигурни ли сте, че искате да изтриете тази книга?");
+        const deleteConfirmed = window.confirm("Сигурни ли сте, че искате да изтриете тази публикация?");
       if(deleteConfirmed){
         await bookService.deleteBook(bookId, accessToken);
         setShowInfo(false)
@@ -213,13 +214,9 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
           <Modal.Title>{book.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <div style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}>
-                <div >
-                    <img style={{marginRight: "50px", width:"400px"}} src={book.imageUrl} alt={book.title}/>
+            <div className="body-content">
+                <div className="book-cover-image">
+                    <img src={book.imageUrl} alt={book.title}/>
                 </div>
                 <div>
                     {showEdit? <Edit key={bookId} setBook={setBook} setShowInfo={setShowInfo} category={category} bookId={bookId} book={book} setShowEdit={setShowEdit} show={showEdit} hideEditButton={setHideEditButton}/>:
@@ -238,7 +235,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
             <>
               {['success'].map((variant) => (
                 <Alert key={variant} variant={variant}>
-                  Харесахте тази книга!
+                  Харесахте тази публикация!
                 </Alert>
               ))}
             </>
@@ -253,7 +250,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
           )}
         </>
       )}
-                    <p>{book.description}</p>
+                    <p className="modal-book-description">{book.description}</p>
                     <p>Създадено от {bookOwnerName?<Link to={localStorage.getItem("auth") && book.ownerId == localStorage.getItem("auth").split(",")[2] ? "/me": "/"+book.ownerId} onClick={onUserClicked}>{bookOwnerName}</Link>: <span style={{color: "red"}}>Изтрит потребител</span>}</p>
                    
                     {/* {owner == ownerId && <h6 style={{color: "tomato"}}>Creator: {user}</h6>} */}
@@ -325,7 +322,7 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
             {isAdmin && 
               <>
               <Button variant="warning" onClick={showEditPage} hidden={hideEditButton}>Редактирай</Button>
-              <Button variant="danger" onClick={deleteBook}>Изтрий</Button>
+              <Button  onClick={deleteBook}>Изтрий</Button>
             </>
             }
             </>

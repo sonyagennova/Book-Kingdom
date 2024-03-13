@@ -1,5 +1,5 @@
 import { Footer } from "../homePageSections/Footer";
-import { Info } from "../homePageSections/InfoSection";
+// import { Info } from "../homePageSections/InfoSection";
 import { NavLogin } from "../partial/NavbarLogin";
 import * as bookService from "../../utils/booksService"
 import * as userService from "../../utils/userService"
@@ -60,7 +60,7 @@ export function CreatePage(){
         <div className="form_container">
           <div className="heading_container">
             <img src="./static/images/storytelling.png" alt="" />
-            <h2>Създай книга</h2>
+            <h2>Създай публикация</h2>
           </div>
           <form method="POST">
             <div>
@@ -99,13 +99,13 @@ export function CreatePage(){
           </form>
         </div>
       </div>
-      <div classname="col-md-6 px-0">
-  <div classname="map_container" >
-    <div classname="map-responsive">
-      <img src="./static/images/books-8.png" width={500}/>
-    </div>
-  </div>
-</div>
+      <div className="col-md-6 px-0">
+        <div >
+          <div className="map-responsive">
+            <img src="./static/images/books-8.png" width={500}/>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>

@@ -1,9 +1,9 @@
 .back {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background:
-    linear-gradient(rgba(0, 0, 0, 0.4),
-        rgba(0, 0, 0, 0.4)),
-    url(https://www.pixelstalk.net/wp-content/uploads/2016/08/HD-Library-Wallpaper.jpg);
+        linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)),
+        url(https://www.pixelstalk.net/wp-content/uploads/2016/08/HD-Library-Wallpaper.jpg);
 
 }
 
@@ -63,8 +63,11 @@
     padding-right: 5%;
 }
 
-.choose-img{
+.choose-img {
     margin-top: 20px;
+    background-color: #d1dde7;
+    color: #444444;
+    border-color: #444444;
 }
 
 .user-img {
@@ -104,18 +107,19 @@
 .right-column {
     display: flex;
     flex-direction: column;
-    align-items:flex-end; 
+    align-items: flex-end;
+    gap: 4px;
     width: 100%;
     padding-right: 50px;
-    margin-right: auto;   
+    margin-right: auto;
 }
 
 .edit-user {
     width: 150px;
     height: 35px;
-    background-color: rgb(0, 184, 55);
+    background-color: #aa7408;
     color: white;
-    border: 0 solid rgb(0, 184, 55);
+    border: 0 solid #57431b;
     border-radius: 4px;
     padding: 4px 12px;
 }
@@ -131,7 +135,7 @@
 }
 
 .profile-tabs {
-    
+
     margin-right: 20px;
     padding: 18px 0;
     display: flex;
@@ -156,6 +160,7 @@
     margin-right: 6px;
 }
 
+
 @media screen and (max-width: 650px) {
     .profile-card {
         width: 90%;
@@ -175,6 +180,29 @@
         margin: auto;
         padding: 24px;
     }
+
+    .user-info {
+        display: block;
+    }
+
+    .right-column {
+        padding: 0;
+        align-items: center;
+    }
+
+    .edit-user,
+    .delete-user {
+        width: 100%;
+    }
+
+    .pagination {
+        justify-content: center;
+    }
+
+    .profile-tabs {
+        justify-content: center;
+    }
+
 }
 
 /* FLIPPING THE CARDS */
@@ -255,4 +283,51 @@
 .author-flip-card-back {
     color: #505050;
     font-size: 14px;
+}
+
+@media screen and (max-width: 480px) {
+    .img-container {
+        padding-right: 0;
+    }
+
+    .wrapper {
+        width: 90%;
+    }
+
+    .flip-card,
+    .flip-card-inner,
+    .flip-card-front,
+    .flip-card-back {
+        width: 112px;
+        height: 161px;
+    }
+
+
+    .flip-card-back h3 {
+        font-size: 12px;
+    }
+
+    .flip-card-back .cat {
+        font-size: 10px;
+        color: #505050;
+    }
+
+    .author-flip-card-back {
+        color: #505050;
+        font-size: 13px;
+    }
+
+    .view-book {
+        background-color: #aa7408;
+        color: #fff;
+        border: 1px solid rgb(92, 62, 27);
+        padding: 4px 8px;
+        position: fixed;
+        border-radius: 4px;
+        bottom: 16px;
+        left: 16px;
+        width: 80px;
+        height: 40px;
+        font-size: 11px;
+    }
 }

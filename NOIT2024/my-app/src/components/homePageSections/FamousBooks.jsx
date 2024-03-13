@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as latestBooksService from "../../utils/topBooksService.js";
-import * as booksService from "../../utils/booksService";
+// import * as booksService from "../../utils/booksService";
 import './FamousBooks.scss'
 import { ReadMore } from "../otherPages/ReadMoreINfo.jsx";
 
@@ -29,25 +29,21 @@ export function FamousBooks() {
   }
 
   return (
-    <section className="food_section layout_padding">
+    <section className="book_section layout_padding">
       <div className="container">
         <div className="heading_container">
           <img src="./static/images/storytelling (1).png" alt="" />
-          <h2>Последните 3 публикувани книги</h2>
+          <h2>Последно публикувани книги</h2>
         </div>
-        <div className="food_container">
+        <div className="book_container">
           {books.length <= 3 && (
             <>
               {books.slice(0, 3).map(book => (
-                <div className="box" key={book._id}>
-                  <div className="img-box">
-                    <img src={book.imageUrl} alt="" />
-                  </div>
-                  <div className="detail-box">
-                    <h3>
-                      <p>{book.title}</p>
+                <div className="book-box" key={book._id}>
+                  <img src={book.imageUrl} alt="" />
+                  <div className="details-box">
+                    <h3>{book.title}</h3>
                       <h6>{book.author}</h6>
-                    </h3>
                     <Link onClick={() => openInfo(book)}>Прочети още</Link>
                   </div>
                 </div>
