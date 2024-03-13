@@ -39,6 +39,8 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
 
     const { clicked, handleLike, src, setLike } = useLike();
 
+    const [loading, setLoading] = useState(false);
+
     const handleLikeButtonClick = async () => {
         await handleLike(bookId, setShowAlert);
       };
@@ -127,11 +129,13 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
     let addComment = []
     
     useEffect(() => {
+      setLoading(true);
       bookService.getOne(bookId)
       .then(result => {
         setBook(result)
         setCountLikes(result.countLikes)
       })
+      .finally(() => setLoading(false));
       setLike(bookId)
       
     }, [bookId])
@@ -214,104 +218,102 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
           <Modal.Title>{book.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <div className="body-content">
-                <div className="book-cover-image">
-                    <img src={book.imageUrl} alt={book.title}/>
-                </div>
-                <div>
-                    {showEdit? <Edit key={bookId} setBook={setBook} setShowInfo={setShowInfo} category={category} bookId={bookId} book={book} setShowEdit={setShowEdit} show={showEdit} hideEditButton={setHideEditButton}/>:
-                    <>
-                    <h1>{book.title}</h1>
-                    <h3>{book.author}</h3>
-                    <h5>Издателство: {book.publisher}</h5>
-                    <div onClick={handleLikeButtonClick}>
-                        <LikeButton src={src}/>
-                        
-                    </div>
-                    {/* <p>{countLikes}</p> */}
- {showAlert && (
-        <>
-          {clicked ? (
-            <>
-              {['success'].map((variant) => (
-                <Alert key={variant} variant={variant}>
-                  Харесахте тази публикация!
-                </Alert>
-              ))}
-            </>
-          ) : (
-            <>
-              {['success'].map((variant) => (
-                <Alert key={variant} variant={variant}>
-                  Отменихте харесването!
-                </Alert>
-              ))}
-            </>
-          )}
-        </>
-      )}
-                    <p className="modal-book-description">{book.description}</p>
-                    <p>Създадено от {bookOwnerName?<Link to={localStorage.getItem("auth") && book.ownerId == localStorage.getItem("auth").split(",")[2] ? "/me": "/"+book.ownerId} onClick={onUserClicked}>{bookOwnerName}</Link>: <span style={{color: "red"}}>Изтрит потребител</span>}</p>
-                   
-                    {/* {owner == ownerId && <h6 style={{color: "tomato"}}>Creator: {user}</h6>} */}
-                    </>
-                  }
-            </div>
-            </div>
-          <Modal.Body>
-            <Form style={{marginBottom: "15px"}}>
-              <Form.Label><h3>Ревюта</h3></Form.Label>
-        {localStorage.getItem("auth") &&<>
-      <Form.Group className="mb-3" controlId="comment">
-        
-        <Form.Control type="text" placeholder="Добави коментар" name="comment"/>
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={comment}>
-        Коментирай
-      </Button></>}
-    </Form>
-    
-    {
+        {loading ? ( // Показва спинър, докато информацията се зарежда
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    ) :(
+            <><div className="body-content">
+                  <div className="book-cover-image">
+                    <img src={book.imageUrl} alt={book.title} />
+                  </div>
+                  <div>
+                    {showEdit ? <Edit key={bookId} setBook={setBook} setShowInfo={setShowInfo} category={category} bookId={bookId} book={book} setShowEdit={setShowEdit} show={showEdit} hideEditButton={setHideEditButton} /> :
+                      <>
+                        <h1>{book.title}</h1>
+                        <h3>{book.author}</h3>
+                        <h5>Издателство: {book.publisher}</h5>
+                        <div onClick={handleLikeButtonClick}>
+                          <LikeButton src={src} />
 
-      com.map(comment => {
-        return(
-          <Form key={comment._id} id={`commentForm_${comment._id}`}>
-          <div className="d-flex flex-row comment-row">
-            <div className="p-2"><span className="round"><img src={comment.image} alt="user" width="50"/></span></div>
-            <div className="comment-text w-100">
-                <h5>{comment.username}</h5>
-                <div className="comment-footer">
-                   
-                </div>
-                <p className="m-b-5 m-t-10" id="comment">{comment.comment}</p>
-                {showEditComment && <EditComment key={comment._id} com={com} setCom={setCom} show={showEditComment} commentId={commentId} comment={currentComment} setShowEditComment={setShowEditComent} hideButton={setHideEditCommentButton}/>}
-                <Modal.Footer>
-                  {comment.ownerId == owner ?
-                  <>
-                    <Button variant="warning" data-comment-id={comment._id} onClick={showEditCommentPage} hidden={hideEditCommentButton}>Редактирай</Button>
-                    <Button variant="danger" data-comment-id={comment._id} onClick={deleteComment} >Изтрий</Button>
-                  </>:
-                  <>
-                  {isAdmin && 
-                    <>
-                    <Button variant="warning" data-comment-id={comment._id} onClick={showEditCommentPage} hidden={hideEditCommentButton}>Редактирай</Button>
-                    <Button variant="danger" data-comment-id={comment._id} onClick={deleteComment} >Изтрий</Button>
-                  </>
-                  }
-                  </>
-                  }
-                </Modal.Footer>
-            </div>
-          </div>
-          </Form>
-        )
-    
-      })
-    }
-      
+                        </div>
+                        {/* <p>{countLikes}</p> */}
+                        {showAlert && (
+                          <>
+                            {clicked ? (
+                              <>
+                                {['success'].map((variant) => (
+                                  <Alert key={variant} variant={variant}>
+                                    Харесахте тази публикация!
+                                  </Alert>
+                                ))}
+                              </>
+                            ) : (
+                              <>
+                                {['success'].map((variant) => (
+                                  <Alert key={variant} variant={variant}>
+                                    Отменихте харесването!
+                                  </Alert>
+                                ))}
+                              </>
+                            )}
+                          </>
+                        )}
+                        <p className="modal-book-description">{book.description}</p>
+                        <p>Създадено от {bookOwnerName ? <Link to={localStorage.getItem("auth") && book.ownerId == localStorage.getItem("auth").split(",")[2] ? "/me" : "/" + book.ownerId} onClick={onUserClicked}>{bookOwnerName}</Link> : <span style={{ color: "red" }}>Изтрит потребител</span>}</p>
 
-      </Modal.Body>
-        </Modal.Body>
+                        {/* {owner == ownerId && <h6 style={{color: "tomato"}}>Creator: {user}</h6>} */}
+                      </>}
+                  </div>
+                </div><Modal.Body>
+                    <Form style={{ marginBottom: "15px" }}>
+                      <Form.Label><h3>Ревюта</h3></Form.Label>
+                      {localStorage.getItem("auth") && <>
+                        <Form.Group className="mb-3" controlId="comment">
+
+                          <Form.Control type="text" placeholder="Добави коментар" name="comment" />
+                        </Form.Group>
+                        <Button variant="primary" type="submit" onClick={comment}>
+                          Коментирай
+                        </Button></>}
+                    </Form>
+
+                    {com.map(comment => {
+                      return (
+                        <Form key={comment._id} id={`commentForm_${comment._id}`}>
+                          <div className="d-flex flex-row comment-row">
+                            <div className="p-2"><span className="round"><img src={comment.image} alt="user" width="50" /></span></div>
+                            <div className="comment-text w-100">
+                              <h5>{comment.username}</h5>
+                              <div className="comment-footer">
+
+                              </div>
+                              <p className="m-b-5 m-t-10" id="comment">{comment.comment}</p>
+                              {showEditComment && <EditComment key={comment._id} com={com} setCom={setCom} show={showEditComment} commentId={commentId} comment={currentComment} setShowEditComment={setShowEditComent} hideButton={setHideEditCommentButton} />}
+                              <Modal.Footer>
+                                {comment.ownerId == owner ?
+                                  <>
+                                    <Button variant="warning" data-comment-id={comment._id} onClick={showEditCommentPage} hidden={hideEditCommentButton}>Редактирай</Button>
+                                    <Button variant="danger" data-comment-id={comment._id} onClick={deleteComment}>Изтрий</Button>
+                                  </> :
+                                  <>
+                                    {isAdmin &&
+                                      <>
+                                        <Button variant="warning" data-comment-id={comment._id} onClick={showEditCommentPage} hidden={hideEditCommentButton}>Редактирай</Button>
+                                        <Button variant="danger" data-comment-id={comment._id} onClick={deleteComment}>Изтрий</Button>
+                                      </>}
+                                  </>}
+                              </Modal.Footer>
+                            </div>
+                          </div>
+                        </Form>
+                      );
+
+                    })}
+
+
+                  </Modal.Body></>
+    )}</Modal.Body>
         <Modal.Footer>
           {book.ownerId == owner?
             <>
