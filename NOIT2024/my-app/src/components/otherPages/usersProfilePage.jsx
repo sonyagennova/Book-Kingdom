@@ -23,6 +23,8 @@ export function UserProfilePage(){
   const [userEmail, setUserEmail] = useState("");
   const [bookData, setBookData] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   const{clicked, setLike} = useLike()
 
   const navigate = useNavigate()
@@ -55,10 +57,12 @@ export function UserProfilePage(){
   const userId = location.pathname.split("/")[1];
   
   useEffect(() => {
+    setLoading(true);
     bookService.getAll()
     .then(result => setBooks(result))
     .then(() => setLike())
-    .catch(error => console.error('Error fetching books:', error));
+    .catch(error => console.error('Error fetching books:', error))
+    .finally(() => setLoading(false));
   }, []);
   
   const startOffset = itemOffset;
@@ -131,6 +135,11 @@ export function UserProfilePage(){
         </section>
       </div>
       <h3 className="profile-names">Създадени книги</h3>
+      {loading ? ( // Показва спинър, докато информацията се зарежда
+         <div className="spinner-border" role="status">
+         <span class="loader"></span>
+        </div>
+        ) : ( <>
       {bookData.length > 0 &&
         <ReactPaginate
         breakLabel="..."
@@ -169,7 +178,7 @@ export function UserProfilePage(){
     ) : (
     <h3>Няма създадени книги.</h3>
   )}
-      </div>
+      </div></>)}
     </div>
   </div>
 </div>
