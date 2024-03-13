@@ -219,7 +219,9 @@ export function ReadMore({bookId, infoClose, show, setShowInfo, setBooks, userId
         </Modal.Header>
         <Modal.Body>
         {loading ? ( // Показва спинър, докато информацията се зарежда
-      <span class="loader"></span>
+      <div className="spinner-border" role="status">
+       <span class="loader"></span>
+      </div>
     ) :(
             <><div className="body-content">
                   <div className="book-cover-image">
