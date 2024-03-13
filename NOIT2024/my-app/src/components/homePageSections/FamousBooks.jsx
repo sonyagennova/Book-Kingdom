@@ -10,12 +10,16 @@ export function FamousBooks() {
   const [showInfo, setShowInfo] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
+    setLoading(true);
     latestBooksService.top()
       .then(result => {
         setBooks(result)
       })
       .catch(error => console.error(error))
+      .finally(() => setLoading(false));
   }, [])
 
   const openInfo = (book) => {
@@ -36,6 +40,11 @@ export function FamousBooks() {
           <h2>Последно публикувани книги</h2>
         </div>
         <div className="book_container">
+        {loading ? ( // Показва спинър, докато информацията се зарежда
+         <div className="spinner-border" role="status">
+         <span class="loader"></span>
+        </div>
+        ) : ( <>
           {books.length <= 3 && (
             <>
               {books.slice(0, 3).map(book => (
@@ -50,6 +59,7 @@ export function FamousBooks() {
               ))}
             </>
           )}
+        </>)}
         </div>
       </div>
       {selectedBook && (
