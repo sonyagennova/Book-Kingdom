@@ -183,10 +183,10 @@ useEffect(() => {
                 </div>
                 </div></section>
                 </>
-                <div className="book-box">
                 {loading ? ( // Показва спинър, докато информацията се зарежда
      <span class="loader"></span>
     ) : ( <>
+                <div className="book-box">
                 <div style={{marginLeft: "30px"}} className="d-flex justify-content-start">
                     <Button className="book-box-button" onClick={goToCategories} variant="dark">
                         Всички категории
@@ -238,8 +238,8 @@ useEffect(() => {
                     </div>
                 </div>
                 }
-        </>)}
                 </div>
+        </>)}
             </section>
             
             <Footer />
