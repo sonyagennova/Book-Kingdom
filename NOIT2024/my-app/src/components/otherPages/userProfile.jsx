@@ -34,6 +34,8 @@ export function ProfilePage(){
 
   const [point, setPoint] = useState("")
 
+  const [loading, setLoading] = useState(false);
+
   const{clicked, setLike} = useLike()
 
   const [itemOffset, setItemOffset] = useState(0);
@@ -44,8 +46,10 @@ export function ProfilePage(){
   const navigate = useNavigate();
 
     useEffect(() => {
+      setLoading(true);
         bookService.getAll()
             .then(result => setBooks(result))
+            .finally(() => setLoading(false));
         setUserName(localStorage.getItem("auth").split(',')[0])
         setLike()
     }, [])
@@ -276,6 +280,11 @@ export function ProfilePage(){
         </section>
       </div>
       <h3 className="profile-names">Моите книги</h3>
+      {loading ? ( // Показва спинър, докато информацията се зарежда
+         <div className="spinner-border" role="status">
+         <span class="loader"></span>
+        </div>
+        ) : ( <>
       {books.length > 0 &&
         <ReactPaginate
         breakLabel="..."
@@ -317,8 +326,13 @@ export function ProfilePage(){
     </>) : (
     <h3>Нямате създадени книги. Създай сега!</h3>
   )}
-      </div>
+      </div></>)}
       <h3 className="profile-names">Харесани книги</h3>
+      {loading ? ( // Показва спинър, докато информацията се зарежда
+         <div className="spinner-border" role="status">
+         <span class="loader"></span>
+        </div>
+        ) : ( <>
       <div className="profile-tabs">
         
         {books.length > 0 ? (
@@ -349,7 +363,7 @@ export function ProfilePage(){
 ) : (
   <h3>Нямате харесани книги.</h3>
 )}
-    </div>
+    </div></>)}
     </div>
   </div>
 </div>
