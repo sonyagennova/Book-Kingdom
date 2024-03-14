@@ -22,6 +22,9 @@ export function CategoryPage(){
     const [Lowercategory, setCategoryLower] = useState("");
 
     const [loading, setLoading] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const [filteredBooks, setFilteredBooks] = useState([]);
     
     const itemsPerPage = 8
     let categoryBooks = [];
@@ -54,6 +57,7 @@ export function CategoryPage(){
         booksService.getAll()
         .then(result => {
             setBooks(result)
+            setFilteredBooks(result);
         })
         .catch(err => console.log(err))
         .finally(() => setLoading(false));
@@ -135,6 +139,14 @@ useEffect(() => {
             }
     })
 
+    useEffect(() => {
+        const filtered = booksForCategory.filter(book =>
+          book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          book.author.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredBooks(filtered);
+      }, [searchTerm, booksForCategory]);
+
     return(
         <>
         <div className="hero_area1 ">
@@ -196,7 +208,17 @@ useEffect(() => {
                     }
 
                 </div>
-                
+                <div className="search-bar">
+  <input
+    className="search-bar-textarea"
+    type="text"
+    placeholder="Търсене..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)
+    }
+  />
+  <button className="search-bar-button">Търсене</button>
+</div>
                     {loading ? ( // Показва спинър, докато информацията се зарежда
          <div className="spinner-border" role="status">
          <span class="loader"></span>
@@ -216,10 +238,25 @@ useEffect(() => {
       />
                         {/* <h1>{category} Category Books</h1>  */}
                         <div className="container">
-                            <div className="animal_container">
-                                {categoryBooks}
-                            </div>
-                        </div>
+                    <div className="animal_container">
+                        {/* Render filteredBooks if searchTerm exists, otherwise render categoryBooks */}
+                        {searchTerm
+                            ? filteredBooks.map((book) => (
+                                <BooksItem
+                                    key={book._id}
+                                    bookId={book._id}
+                                    title={book.title}
+                                    author={book.author}
+                                    publicationYear={book.publication_year}
+                                    imageUrl={book.imageUrl}
+                                    category={book.category}
+                                    onInfoClick={bookInfoClickHandler}
+                                    comments={book.comments}
+                                />
+                            ))
+                            : <>{categoryBooks}</>}
+                    </div>
+                </div>
 
                         <ReactPaginate
         breakLabel="..."

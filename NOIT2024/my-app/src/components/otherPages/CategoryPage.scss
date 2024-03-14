@@ -135,4 +135,33 @@
       transform: rotateY( -180deg );
     }
   }
+
+  .search-bar-textarea{
+    width: 30%;
+    height: 40px;
+  border: solid;
+  margin-bottom: 25px;
+  padding-left: 15px;
+  background-color: #ebebeb;
+  outline: none;
+  color: #101010;
+  }
+
+  .search-bar-button{
+    display: inline-block;
+    padding: 7px 42px;
+    background-color: #e55593;
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid #e55593;
+    border-radius: 0;
+    color: #fff;
+    margin-top: 35px;
+  }
+
+  .search-bar-button:hover{
+    background-color: transparent;
+  color: #e55593;
+  }
   
