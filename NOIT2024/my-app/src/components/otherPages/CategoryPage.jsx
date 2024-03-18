@@ -217,7 +217,7 @@ useEffect(() => {
     onChange={(e) => setSearchTerm(e.target.value)
     }
   />
-  <button className="search-bar-button">Търсене</button>
+  {/* <button className="search-bar-button">Търсене</button> */}
 </div>
                     {loading ? ( // Показва спинър, докато информацията се зарежда
          <div className="spinner-border" role="status">
